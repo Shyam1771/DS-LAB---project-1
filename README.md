@@ -14,10 +14,10 @@ This is a simple terminal-based Snake Game implemented in C++. The game runs in 
 ## How It Works
 1. Setup Phase: Initializes game variables, places the snake at the center, and randomly positions the food.
 2. Drawing the Game: The board is displayed using ASCII characters:
-   - # represents the walls.
-   - O represents the snake's head.
-   - o represents the snake's tail.
-   - F represents the food.
+   - '#' represents the walls.
+   - 'O' represents the snake's head.
+   - 'o' represents the snake's tail.
+   - 'F' represents the food.
 3. User Input Handling: The player uses:
    - 'w' to move up
    - 'a' to move left
