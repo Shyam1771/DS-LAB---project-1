@@ -7,8 +7,8 @@ This is a simple terminal-based Snake Game implemented in C++. The game runs in 
 ## Features
 - Classic Snake Gameplay: Move the snake using 'w', 'a', 's', 'd' keys.
 - Food Collection: The snake grows upon eating food, and the score increases.
-- Boundary Wrapping: The snake reappears on the opposite side if it crosses the screen edges.
-- Game Over Conditions: Collision with the snake's own body ends the game. OR hitting the wall
+- Boundary Wrapping: The gaem terminates if it hits the wall.
+- Game Over Conditions: Collision with the snake's own body ends the game.
 - Simple Console Interface: Uses ASCII characters to represent the game elements.
 
 ## How It Works
@@ -26,8 +26,8 @@ This is a simple terminal-based Snake Game implemented in C++. The game runs in 
    - 'x' to exit the game
 4. Game Logic:
    - The snake moves in the specified direction.
-   - If the snake eats food, it grows and the score increases.1 fruit = 10 points
-   - If the snake collides with itself OR hit the wall the game ends.
+   - If the snake eats food, it grows and the score increases. 1 fruit = 10 points
+   - If the snake collides with itself OR hit the wall, the game ends.
 5. Game over:
    - if game is over click 'r' to restart or click 'q' to quit
 
@@ -39,16 +39,13 @@ This is a simple terminal-based Snake Game implemented in C++. The game runs in 
 
 ## How to Run
 1. Compile the program using a C++ compiler:
-   sh
    g++ snake_game.cpp -o snake_game
    
 2. Run the executable:
-   sh
    ./snake_game
    
 3. Control the snake using the specified keys.
 
 ## Notes
 - The game runs in a terminal/command prompt.
-- Works best on Unix-based systems due to the system("clear") command.
-- The input method may need modifications for real-time key capture on Windows.
+  
