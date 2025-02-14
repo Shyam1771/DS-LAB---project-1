@@ -24,11 +24,14 @@ public:
 
     void Setup() {
         gameOver = false;
-        dir = STOP;
+        dir = STOP; 
         x = width / 2;
         y = height / 2;
         score = 0;
-        nTail = 0;
+        nTail = 2;
+        tailX[0] = x; tailY[0] = y + 1;
+        tailX[1] = x; tailY[1] = y + 2;
+        
         highScore = 0;
         GenerateFruit();
     }
@@ -49,25 +52,27 @@ public:
     }
 
     void Draw() {
-        cout << "\033[H\033[J"; // Clear screen without flickering
+        cout << "\033[H\033[J";
         for (int i = 0; i < width + 2; i++) cout << "#";
         cout << endl;
         
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 if (j == 0) cout << "#";
-                if (i == y && j == x) cout << "O";
-                else if (i == fruitY && j == fruitX) cout << "F";
+                
+                if (i == y && j == x) cout << "O";  
+                else if (i == fruitY && j == fruitX) cout << "F";  
                 else {
                     bool print = false;
                     for (int k = 0; k < nTail; k++) {
                         if (tailX[k] == j && tailY[k] == i) {
-                            cout << "o";
+                            cout << "o";  
                             print = true;
                         }
                     }
                     if (!print) cout << " ";
                 }
+                
                 if (j == width - 1) cout << "#";
             }
             cout << endl;
@@ -78,10 +83,8 @@ public:
     }
 
     void Input() {
-        char current;
         if (_kbhit()) {
-            current = _getch();
-            switch (current) {
+            switch (_getch()) {
                 case 'a': dir = LEFT; break;
                 case 'd': dir = RIGHT; break;
                 case 'w': dir = UP; break;
@@ -153,8 +156,8 @@ public:
         while (!gameOver) {
             Draw();
             Input();
-            Logic();
-            usleep(100000);
+            if (dir != STOP) Logic(); 
+            usleep(100000);  
         }
         GameOverScreen();
     }
